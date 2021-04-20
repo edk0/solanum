@@ -310,7 +310,7 @@ single_whois(struct Client *source_p, struct Client *target_p, int operspy)
 			snprintf(buf, sizeof buf, "is opered as %s", target_p->user->opername);
 			s = buf;
 		}
-		else if ((!ConfigFileEntry.hide_opers_in_whois || IsOper(source_p)) && SeesOper(target_p, source_p))
+		else if (!ConfigFileEntry.hide_opers_in_whois && SeesOper(target_p, source_p))
 		{
 			s = IsService(target_p) ? ConfigFileEntry.servicestring :
 			    IsAdmin(target_p) ? GlobalSetOptions.adminstring :
