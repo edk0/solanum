@@ -655,7 +655,7 @@ void matchset_for_client(struct Client *who, struct matchset *m)
 	{
 		int n = sprintf(m->ip[ipn++], "%s!%s@", who->name, who->username);
 		rb_inet_ntop_sock((struct sockaddr *)&ip4,
-				m->ip[ipn] + n, sizeof m->ip[ipn] - n);
+				m->ip[ipn] + n, sizeof m->ip[ipn] - n - 1);
 	}
 
 	for (int i = hostn; i < ARRAY_SIZE(m->host); i++)
